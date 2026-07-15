@@ -1,11 +1,11 @@
 :root {
-  --red: #c40000;
-  --red-dark: #8e0000;
+  --red: #e30613;
+  --red-dark: #a9000a;
   --black: #070707;
   --ink: #151515;
   --muted: #707070;
   --line: #e8e2dc;
-  --paper: #fffaf5;
+  --paper: #f3eadf;
   --white: #ffffff;
   --shadow: 0 22px 70px rgba(0, 0, 0, .18);
 }
@@ -102,3 +102,15 @@ textarea { min-height: 150px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
 @media (max-width: 900px) { .stats, .steps, .gallery-strip { grid-template-columns: 1fr; } .floating-cta { left: 20px; right: 20px; } .floating-cta .button { width: 100%; } }
 .floating-cta .light { background: #111; color: #fff; border-color: #111; }
+
+.media-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.photo-mosaic { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.photo-mosaic img { width: 100%; height: 220px; object-fit: cover; border-radius: 20px; box-shadow: 0 12px 34px rgba(0,0,0,.14); }
+.photo-mosaic img:nth-child(1), .photo-mosaic img:nth-child(6) { grid-column: span 2; }
+.team-history { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.team-history figure { margin: 0; background: #fff; border: 1px solid var(--line); border-radius: 28px; padding: 14px; box-shadow: 0 16px 48px rgba(0,0,0,.10); }
+.team-history figcaption { padding: 12px 6px 4px; font-weight: 900; color: var(--red); text-transform: uppercase; letter-spacing: .08em; }
+.icon-list { display: grid; gap: 14px; }
+.icon-list p { display: flex; gap: 12px; align-items: flex-start; margin: 0; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+.icon { width: 34px; height: 34px; display: inline-grid; place-items: center; flex: 0 0 34px; border-radius: 50%; background: rgba(227,6,19,.12); color: var(--red); }
+@media (max-width: 900px) { .media-grid, .team-history, .photo-mosaic { grid-template-columns: 1fr; } .photo-mosaic img, .photo-mosaic img:nth-child(1), .photo-mosaic img:nth-child(6) { grid-column: auto; } }
