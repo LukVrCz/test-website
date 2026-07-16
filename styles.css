@@ -114,3 +114,22 @@ textarea { min-height: 150px; }
 .icon-list p { display: flex; gap: 12px; align-items: flex-start; margin: 0; padding: 14px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
 .icon { width: 34px; height: 34px; display: inline-grid; place-items: center; flex: 0 0 34px; border-radius: 50%; background: rgba(227,6,19,.12); color: var(--red); }
 @media (max-width: 900px) { .media-grid, .team-history, .photo-mosaic { grid-template-columns: 1fr; } .photo-mosaic img, .photo-mosaic img:nth-child(1), .photo-mosaic img:nth-child(6) { grid-column: auto; } }
+
+/* L9-inspired clean video landing refinements */
+.video-hero { overflow: hidden; isolation: isolate; }
+.hero-video { position: absolute; inset: 0; z-index: -3; pointer-events: none; background: #080808; }
+.hero-video iframe { position: absolute; top: 50%; left: 50%; width: 177.78vh; min-width: 100%; height: 56.25vw; min-height: 100%; transform: translate(-50%, -50%); border: 0; filter: saturate(.92) contrast(1.08); }
+.video-hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(0,0,0,.86), rgba(0,0,0,.42) 48%, rgba(0,0,0,.76)), radial-gradient(circle at 20% 20%, rgba(227,6,19,.28), transparent 34%); }
+.hero-noise { position: absolute; inset: 0; z-index: -1; opacity: .18; background-image: linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px); background-size: 72px 72px; mask-image: linear-gradient(#000, transparent 78%); }
+.button.dark, .story-panel .button.light { background: #111; border-color: #111; color: #fff; }
+.studio-section { background: linear-gradient(180deg, var(--paper), #fff); }
+.studio-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; align-items: stretch; }
+.studio-copy { border-radius: 34px; padding: clamp(28px, 5vw, 56px); background: #111; color: #fff; box-shadow: var(--shadow); }
+.studio-copy p:not(.eyebrow) { color: rgba(255,255,255,.76); }
+.studio-stack { display: grid; gap: 16px; }
+.studio-stack article { position: relative; overflow: hidden; border: 1px solid rgba(227,6,19,.12); border-radius: 28px; padding: 28px; background: rgba(255,255,255,.78); box-shadow: 0 18px 60px rgba(0,0,0,.08); transform: translateZ(0); transition: transform .35s ease, box-shadow .35s ease; }
+.studio-stack article:hover { transform: translateY(-6px); box-shadow: 0 26px 80px rgba(0,0,0,.14); }
+.studio-stack span { color: var(--red); font-weight: 900; letter-spacing: .14em; }
+.reveal-on-scroll { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+.reveal-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 900px) { .studio-grid { grid-template-columns: 1fr; } .hero-video iframe { width: 220vh; height: 123.75vw; } }
